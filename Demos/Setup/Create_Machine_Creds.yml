@@ -11,8 +11,9 @@
         organization: Red Hat Training
         credential_type: Machine
         inputs:
-          username: root
-          password: redhat
+          username: student
+          password: student
+          become_password: student
         controller_username: admin
         controller_password: redhat
         controller_host: https://controller.lab.example.com
