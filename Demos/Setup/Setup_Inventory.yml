@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
 
-    - name: Create DO467 Inventory
+    - name: Create DO274 Inventory
       ansible.controller.inventory:
         name: "DO274 Demo Inventory"
         organization: "Red Hat Training"
