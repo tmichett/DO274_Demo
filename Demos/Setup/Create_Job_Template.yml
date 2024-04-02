@@ -6,7 +6,7 @@
 
     - name: Create Job Template
       ansible.controller.job_template:
-        name: "DO274 Deploy Web Webserver  Job Template"
+        name: "DO274 Deploy Webserver Production Job Template"
         description: "Webservers Deployment"
         organization: Red Hat Training
         project: DO274 Demo Project
