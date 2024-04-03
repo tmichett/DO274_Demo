@@ -1,0 +1,19 @@
+---
+- name: Send a message to the chat group
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Send the message
+      ansible.builtin.uri:
+        url: http://172.25.250.220:8065/hooks/g36roamhmifsmr3gddcdxi586w
+        method: POST
+        headers:
+          Content-Type: application/json
+        body_format: json
+        body:
+          text: |
+            # Alert
+            #### The website has entered maintenance mode
+      delegate_to: workstation.lab.example.com
+
+## NOTE: The Mattermost URL will need updated when a webhook is created!!!!
