@@ -7,3 +7,7 @@
 - import_playbook: Setup_Inventory.yml
 - import_playbook: Create_Job_Template.yml
 
+### EDA Controller Setup
+
+- import_playbook: Create_EDA_Project.yml
+- import_playbook: Sync_EDA_Project.yml

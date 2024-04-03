@@ -1,0 +1,52 @@
+---
+- name: Add project resource for DO274 Demo
+  hosts: localhost
+  become: true
+  become_user: student
+  vars:
+    - eda_controller_username: admin
+    -  eda_controller_password: redhat
+    - eda_project_name: Website Maintenance Demo
+    - eda_project_description: DO274 Demo Web Project
+    - eda_url: https://eda-controller.lab.example.com/api/eda/v1
+    - eda_project_url: https://github.com/tmichett/do274_eda_rulebooks.git
+  gather_facts: false
+  tasks:
+
+    - name: Collect info on projects
+      ansible.builtin.uri:
+        url: "{{ eda_url }}/projects/"
+        method: GET
+        user: "{{ eda_controller_username }}"
+        password: "{{  eda_controller_password }}"
+        force_basic_auth: true
+      register: query_eda_projects
+
+    - name: Set project facts
+      when: query_eda_projects['json']['results'] | length > 0
+      ansible.builtin.set_fact:
+        current_eda_projects: "{{ query_eda_projects['json']['results'] }}"
+
+    - name: Display current_eda_projects
+      when: current_eda_projects is defined
+      ansible.builtin.debug:
+        var: current_eda_projects
+
+    - name: Set fact for project ID
+      set_fact:
+        eda_project_to_sync: "{{ current_eda_projects | selectattr('name', '==', eda_project_name ) |  map(attribute='id') | list | join }}"
+
+    - name: Display current_eda_projects
+      when: eda_project_to_sync is defined
+      ansible.builtin.debug: 
+        var: eda_project_to_sync
+
+    - name: Sync project {{ eda_project_name }}
+      ansible.builtin.uri:
+        url: "{{ eda_url }}/projects/{{ eda_project_to_sync }}/sync/"
+        method: POST
+        user: "{{ eda_controller_username }}"
+        password: "{{ eda_controller_password }}"
+        force_basic_auth: true
+        return_content: true
+        status_code: 202

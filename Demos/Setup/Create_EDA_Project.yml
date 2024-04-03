@@ -1,0 +1,31 @@
+---
+- name: Add project resource for DO274 Demo
+  hosts: localhost
+  become: true
+  become_user: student
+  vars:
+    - eda_controller_username: admin
+    - eda_controller_passowrd: redhat
+    - eda_project_name: Website Maintenance Demo
+    - eda_project_description: DO274 Demo Web Project
+    - eda_url: https://eda-controller.lab.example.com/api/eda/v1
+    - eda_project_url: https://github.com/tmichett/do274_eda_rulebooks.git
+  gather_facts: false
+  tasks:
+    - name: Add project {{ eda_project_name }}
+      when: project_id is not defined
+      ansible.builtin.uri:
+        url: "{{ eda_url }}/projects/"
+        method: POST
+        user: "{{ eda_controller_username }}"
+        password: "{{ eda_controller_passowrd }}"
+        force_basic_auth: true
+        body_format: json
+        body:
+          name: "{{ eda_project_name }}"
+          description: "{{ eda_project_description | default(omit) }}"
+          credential_id: "{{ eda_project_credential | default(omit)  }}"
+          url: "{{ eda_project_url }}"
+          verify_ssl: true
+        return_content: true
+        status_code: 201
