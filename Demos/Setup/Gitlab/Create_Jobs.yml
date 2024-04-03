@@ -1,0 +1,42 @@
+---
+- name: Create Job Template
+  hosts: localhost
+
+  tasks:
+
+    - name: Create Job Template - Production Operational Notify Mattermost
+      ansible.controller.job_template:
+        name: "DO274 Deploy Webserver Production Operational Notify Mattermost"
+        description: "Webservers Deployment"
+        organization: Red Hat Training
+        project: DO274 Notification Project
+        inventory: DO274 Demo Inventory
+        job_type: run
+        playbook: "playbooks/website_notify_mm_operational.yml"
+        credential: DO274 Machine Credentials
+        ask_variables_on_launch: false
+        become_enabled: true
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+
+
+    - name: Create Job Template - Maintenance Notify Mattermost
+      ansible.controller.job_template:
+        name: "DO274 Deploy Web Maintenance Notify Mattermost"
+        description: "Webservers in Maintenance"
+        organization: Red Hat Training
+        project: DO274 Notification Project
+        inventory: DO274 Demo Inventory
+        job_type: run
+        playbook: "playbooks/website_notify_mm_maintenance.yml"
+        credential: DO274 Machine Credentials
+        ask_variables_on_launch: false
+        become_enabled: true
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present

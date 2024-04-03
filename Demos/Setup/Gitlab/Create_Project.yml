@@ -1,0 +1,20 @@
+---
+- name: Create Project
+  hosts: localhost
+
+  tasks:
+    - name: Create DO274 Notification Project
+      ansible.controller.project:
+        name: "DO274 Notification Project"
+        description: "DO274 Notification Project from Gitlab"
+        organization: "Red Hat Training"
+        scm_update_on_launch: "no"
+        scm_url: https://git.lab.example.com/student/DO274_Demo.git
+        scm_type: git
+        scm_branch: main
+        credential: GitLab Projects
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
