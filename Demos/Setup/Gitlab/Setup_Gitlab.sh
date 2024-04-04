@@ -64,5 +64,7 @@ echo "**********************************************"
 echo "***** Setting Up Ansible Controller  *********"
 echo "**********************************************"
 
+cd /home/student/Github/DO274_Demo/Demos/Setup/Gitlab
+ansible-playbook Create_SCM_Creds.yml
 ansible-playbook Create_Project.yml
 ansible-playbook Create_Jobs.yml
