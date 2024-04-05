@@ -1,0 +1,10 @@
+-r requirements.txt
+-r lint_requirements.txt
+pytest
+asyncmock
+pytest-asyncio
+pytest-timeout
+ansible
+requests
+ansible-rulebook
+tox
