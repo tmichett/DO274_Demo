@@ -1,0 +1,9 @@
+---
+identity_commands:
+  - useradd
+  - usermod
+  - userdel
+  - groupadd
+  - groupmod
+  - groupdel
+  - passwd
