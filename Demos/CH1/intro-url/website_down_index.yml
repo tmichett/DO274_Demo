@@ -1,0 +1,19 @@
+---
+- name: Restoring website content
+  hosts: servera.lab.example.com
+  remote_user: devops
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Display a message
+      ansible.builtin.debug:
+        msg: "Website is down!"
+
+    - name: Replace the index.html file
+      ansible.builtin.copy:
+        remote_src: true
+        src: /tmp/index.html
+        dest: /var/www/html/
+        owner: apache
+        group: apache
+        mode: '0644'
