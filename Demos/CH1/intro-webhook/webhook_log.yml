@@ -1,0 +1,15 @@
+---
+- name: Write webhook messages to log file
+  hosts: workstation.lab.example.com
+  gather_facts: true
+  become: true
+  become_user: student
+  vars:
+    timestamp: "{{ ansible_facts['date_time']['iso8601'] }}"
+  tasks:
+    - name: Append the incoming POST message to the log file
+      ansible.builtin.lineinfile:
+        path: /home/student/intro-webhook/webhook.log
+        line: "{{ timestamp }} {{ message }}"
+        create: true
+        mode: '0644'

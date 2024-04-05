@@ -1,0 +1,45 @@
+download_url: https://hub.lab.example.com/api/galaxy/v3/plugin/ansible/content/rh-certified/collections/artifacts/ansible-eda-1.4.5.tar.gz
+format_version: 1.0.0
+name: eda
+namespace: ansible
+server: https://hub.lab.example.com/api/galaxy/content/rh-certified/
+signatures:
+- pubkey_fingerprint: 39B5D759361A97464C564A8FE1A4BD708A828AAD
+  pulp_created: '2024-03-07T14:02:56.441829Z'
+  signature: '-----BEGIN PGP SIGNATURE-----
+
+    Version: GnuPG v1
+
+
+    iQIcBAABCAAGBQJlw881AAoJEOGkvXCKgoqteooP/3BMVDXRTkq32aFl/RhoZROG
+
+    KSIds6d9YxroCjAKtwHFgtr+xp/N/0OtR35ybkoxPykg0qNi8dm5Iv/93rLPTKZ8
+
+    l4tfCY1MnG9cFqmeEYxD/zIAncgtLzTLwrhpz+xZrmKUD4Z7nj3K/AtOTOPBb481
+
+    gMXBTTammw6ZrHP2taHPRWA9ulFCHYTc+d6/vfmuTHmCzt5nMWydV5CewPK4W5tr
+
+    HIj4LgIR3050LceKjN+Nbk0QrU11AivKfDUkDeKsIaElIP17xxgX7DTka1wUlZGe
+
+    uVUFARqQNNCIN44iD5sgKansHYfwUHxTLmySNPQDlK3GKosnmVh8sWpOhK7GFjwL
+
+    UTDlLeLKy5d/wAz4Hg0UZhAdmZudEx8xKqf0B1FM8CYxttIIGj7gbD2+7EFFb63N
+
+    0OjixW2rdhWsfTL+Eoj6rdWOH2rbX0XFygdfudFe7i6OcJr0Y15Qlio+yKVbsejZ
+
+    T7m6in1IDwJyoycvsIhnEIelyRSuhWrUS9LyPiKtpeZmTGod7RdbmOTTsEtEbNTj
+
+    sWiR18qiG1u8sQONuXRrc88MqZPN/OVqswPUOdemE9K+o5bVFDo+VbkCXjZItkCk
+
+    NlGDrh7DcXOBK2P6006LfdBSLtACfTnZ6TV4+6Bu+WyS6HjNYsIZMJecRPUmDvvK
+
+    JFZXA89uRNstPQy3l2Dh
+
+    =P5IP
+
+    -----END PGP SIGNATURE-----
+
+    '
+  signing_service: null
+version: 1.4.5
+version_url: /api/galaxy/content/rh-certified/v3/plugin/ansible/content/rh-certified/collections/index/ansible/eda/versions/1.4.5/
