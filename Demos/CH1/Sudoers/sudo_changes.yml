@@ -1,18 +1,17 @@
 ---
 - name: Display User and Sudo Changes
-  hosts: all
+  hosts: 192.168.30.116
 
   sources:
-    #- name: Watch Sudoers File
-    #  ansible.eda.file_watch:
-    #    path: "/etc/sudoers"
-    #    recursive: false
+    - name: Watch Sudoers File
+      ansible.eda.file_watch:
+       path: "/etc/sudoers"
+       recursive: false
 
     - name: Watch Sudoers File in Drop-in Directory
       ansible.eda.file_watch:
         path: "/etc/sudoers.d"
         recursive: true
-        #ignore_regexes: [ '.*\.o' ]
 
   rules:
 #    - name: Display event information
