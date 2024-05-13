@@ -34,4 +34,4 @@
         run_module:
           name: ansible.builtin.debug
           module_args:
-            msg: The following file was changed {{ event.src_path }} 
+            msg: The following file was changed {{ event.src_path }}
