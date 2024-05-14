@@ -1,0 +1,5 @@
+= Running Playbook
+
+Need to be run locally and doesn't use ansible.cfg and also use SUDO as regular users can't monitor/touch the file
+
+sudo ansible-rulebook -r sudo_monitor.yml -i inventory --print-events

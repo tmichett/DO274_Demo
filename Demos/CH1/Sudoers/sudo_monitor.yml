@@ -1,0 +1,22 @@
+---
+- name: Test for Sudoers Changes
+  hosts: localhost
+  sources:
+    - name: Watch Sudoers.d Subdirectory
+      ansible.eda.file_watch:
+        path: /etc/sudoers.d
+        recursive: true
+
+    - ansible.eda.file_watch: # Watch Sudoers File
+        path: "/etc/sudoers"
+        recursive: false
+
+  rules:
+    - name: Detect Changes and Files Modified
+      condition: event.type == "FileModifiedEvent"
+      action:
+        run_module:
+          name: ansible.builtin.debug
+          module_args:
+            msg: There was a change in the Sudoers files
+...
