@@ -19,3 +19,13 @@
         controller_host: https://controller.lab.example.com
         validate_certs: false
         state: present
+
+
+    - name: Update and Synchronize Project
+      ansible.controller.project_update:
+        project: "DO274 Demo Project"
+        timeout: 30
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false

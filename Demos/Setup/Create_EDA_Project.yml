@@ -12,7 +12,7 @@
     - eda_project_url: https://github.com/tmichett/do274_eda_rulebooks.git
   gather_facts: false
   tasks:
-    - name: Add project {{ eda_project_name }}
+    - name: Add project {{ eda_project_name }} - EDA Controller
       when: project_id is not defined
       ansible.builtin.uri:
         url: "{{ eda_url }}/projects/"

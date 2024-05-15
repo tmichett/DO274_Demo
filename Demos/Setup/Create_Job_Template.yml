@@ -4,7 +4,7 @@
 
   tasks:
 
-    - name: Create Job Template
+    - name: Create Job Template - Production
       ansible.controller.job_template:
         name: "DO274 Deploy Webserver Production Job Template"
         description: "Webservers Deployment"
@@ -23,7 +23,7 @@
         state: present
 
 
-    - name: Create Job Template
+    - name: Create Job Template - Website Maintenance
       ansible.controller.job_template:
         name: "DO274 Deploy Web Maintenance Job Template"
         description: "Webservers in Maintenance"
@@ -32,6 +32,42 @@
         inventory: DO274 Demo Inventory
         job_type: run
         playbook: "Deploy_Webserver_EDA_Maintenance.yml"
+        credential: DO274 Machine Credentials
+        ask_variables_on_launch: false
+        become_enabled: true
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+
+    - name: Create Job Template - Website Replace Index HTML
+      ansible.controller.job_template:
+        name: "DO274 - Fix Index"
+        description: "Webservers Index.HTML Loading"
+        organization: Red Hat Training
+        project: DO274 Demo Project
+        inventory: DO274 Demo Inventory
+        job_type: run
+        playbook: "Deploy_Index_EDA.yml"
+        credential: DO274 Machine Credentials
+        ask_variables_on_launch: false
+        become_enabled: true
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+
+    - name: Create Job Template - Start Service
+      ansible.controller.job_template:
+        name: "DO274 - Fix Service"
+        description: "Webservers HTTPD Service Started"
+        organization: Red Hat Training
+        project: DO274 Demo Project
+        inventory: DO274 Demo Inventory
+        job_type: run
+        playbook: "Restart_Service_EDA.yml"
         credential: DO274 Machine Credentials
         ask_variables_on_launch: false
         become_enabled: true
