@@ -1,0 +1,37 @@
+---
+- name: Capture POST events from Mattermost
+  hosts: all
+  sources:
+    - name: Match events posted to port 5000
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+
+  rules:
+
+    - name: Place Website in Maintenance Mode
+      condition: >
+        event.payload.channel_name == "town-square"
+        and event.payload.trigger_word == "website-maintenance"
+        and event.payload.user_name == "student"
+      action:
+        run_job_template:
+          name: DO274 Deploy Web Maintenance Job Template
+          organization: Red Hat Training
+
+    - name: Place Website in Operational Status
+      condition: >
+        event.payload.channel_name == "town-square"
+        and event.payload.trigger_word == "website-normal"
+        and event.payload.user_name == "student"
+      action:
+        run_job_template:
+          name: DO274 Deploy Webserver Production Job Template
+          organization: Red Hat Training
+
+
+    - name: Print event data
+      condition: event.payload is defined
+      action:
+        print_event:
+          pretty: true
