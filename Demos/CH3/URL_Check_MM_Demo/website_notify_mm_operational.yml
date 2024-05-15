@@ -5,7 +5,7 @@
   tasks:
     - name: Send the message
       ansible.builtin.uri:
-        url: http://172.25.250.220:8065/hooks/g36roamhmifsmr3gddcdxi586w
+        url: http://mattermost.lab.example.com:8065/hooks/a8my9aia1fbs9kw97bp87y1g5r
         method: POST
         headers:
           Content-Type: application/json
