@@ -59,6 +59,24 @@
         validate_certs: false
         state: present
 
+    - name: Create Job Template - Website Replace Index HTML - Mattermost Notification
+      ansible.controller.job_template:
+        name: "DO274 - Fix Index - MM"
+        description: "Webservers Index.HTML Loading"
+        organization: Red Hat Training
+        project: DO274 Demo Project
+        inventory: DO274 Demo Inventory
+        job_type: run
+        playbook: "website_notify_index_restored.yml"
+        credential: DO274 Machine Credentials
+        ask_variables_on_launch: false
+        become_enabled: true
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+
     - name: Create Job Template - Start Service
       ansible.controller.job_template:
         name: "DO274 - Fix Service"
@@ -68,6 +86,24 @@
         inventory: DO274 Demo Inventory
         job_type: run
         playbook: "Restart_Service_EDA.yml"
+        credential: DO274 Machine Credentials
+        ask_variables_on_launch: false
+        become_enabled: true
+        controller_username: admin
+        controller_password: redhat
+        controller_host: https://controller.lab.example.com
+        validate_certs: false
+        state: present
+
+    - name: Create Job Template - Start Service - Mattermost Notification
+      ansible.controller.job_template:
+        name: "DO274 - Fix Service - MM"
+        description: "Webservers HTTPD Service Started"
+        organization: Red Hat Training
+        project: DO274 Demo Project
+        inventory: DO274 Demo Inventory
+        job_type: run
+        playbook: "website_notify_service_restored.yml"
         credential: DO274 Machine Credentials
         ask_variables_on_launch: false
         become_enabled: true

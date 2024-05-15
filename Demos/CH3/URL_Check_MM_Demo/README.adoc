@@ -54,3 +54,9 @@ skipping: no hosts matched
 ----
 
 =====
+
+== Repositories and Items in Demo
+
+* *Controller Playbooks*: https://github.com/tmichett/AAP2_Demos
+* *EDA Controller Rulebooks*: https://github.com/tmichett/do274_eda_rulebooks
+* *Main Demo Repository*: https://github.com/tmichett/DO274_Demo
