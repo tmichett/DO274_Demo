@@ -1,6 +1,6 @@
 ---
 - name: Listen for URL events
-  hosts: servera
+  hosts: workstation.lab.example.com
   gather_facts: false
   sources:
     - name: Match events from webserver
@@ -21,7 +21,7 @@
         and event.url_check.status_code == 404
       action:
         run_playbook:
-          name: website_down_index.yml
+          name: website_notify_index_missing.yml
 
     - name: Webserver is down (service stopped)
       condition: >
@@ -29,4 +29,4 @@
         and event.url_check.error_msg is search("Cannot connect to host")
       action:
         run_playbook:
-          name: website_down_service.yml
+          name: website_notify_down.yml
