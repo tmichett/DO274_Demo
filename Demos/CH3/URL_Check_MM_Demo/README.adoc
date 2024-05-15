@@ -29,11 +29,14 @@ It is also necessary to configure the WebHooks for Mattermost and ensure they ar
 
 *System Console => Environment => Developer => Allow Untrusted connections* and enter in EDA controller and the 172.25.250.0/24 subnet.
 
-<FIXME> Webhook image
+
+image::images/README-24-05-15-14-42-39.png[title="Allowing Webhooks (System Console - Untrusted Connections)", align="center"]
 
 You also need to setup the WebHook *Integrations => Incoming Webhooks*
 
-<FIXME> Webhook incoming image 1 & 2
+image::images/README-24-05-15-14-46-59.png[title="Allowing Incoming Webhooks (Integrations)", align="center"]
+
+image::images/README-24-05-15-14-50-20.png[title="Webhook URL", align="center"]
 
 The *incoming webhook* gets created by the start and setup script, just copy the webhook and place in the playbooks above.
 
