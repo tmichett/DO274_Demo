@@ -1,0 +1,32 @@
+---
+- name: Listen for URL events
+  hosts: servera
+  gather_facts: false
+  sources:
+    - name: Match events from webserver
+      ansible.eda.url_check:
+        urls:
+          - http://servera.lab.example.com/index.html
+        delay: 10
+  rules:
+    - name: Webserver is up
+      condition: event.url_check.status == "up"
+      action:
+        debug:
+          msg: The website is up and running
+
+    - name: Webserver is down (index.html missing)
+      condition: > 
+        event.url_check.status == "down"
+        and event.url_check.status_code == 404
+      action:
+        run_playbook:
+          name: website_down_index.yml
+
+    - name: Webserver is down (service stopped)
+      condition: >
+        event.url_check.status == "down"
+        and event.url_check.error_msg is search("Cannot connect to host")
+      action:
+        run_playbook:
+          name: website_down_service.yml

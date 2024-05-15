@@ -1,0 +1,24 @@
+// Initial Settings for Github
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+:revnumber: 1.0
+
+
+= Running the Demo
+
+[source,bash]
+----
+[student@workstation URL_Check_Demo]$ ansible-rulebook -r url_check.yml -i inventory
+----
+
+[NOTE]
+=====
+You must first run the *Setup_Demo.sh* script to ensure all pieces are available. Then you can run the rulebook command. To demonstrate both conditions and fixes, you will need to have a separate window open and delete the *index.html* file and *systemctl stop httpd*.
+=====
