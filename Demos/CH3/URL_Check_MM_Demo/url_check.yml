@@ -16,7 +16,7 @@
           msg: The website is up and running
 
     - name: Webserver is down (index.html missing)
-      condition: > 
+      condition: >
         event.url_check.status == "down"
         and event.url_check.status_code == 404
       action:

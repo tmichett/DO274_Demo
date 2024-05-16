@@ -1,0 +1,85 @@
+= {subject}
+:subject: DO274 - Setting up the Demo Environment
+:description:  DO274 - Event-Driven Ansible (EDA) - Instructor Notes and Demo
+Travis Michette <tmichett@redhat.com>
+:doctype: book
+:customer:  GLS
+:listing-caption: Listing
+:toc:
+:toclevels: 7
+:sectnums:
+:sectnumlevels: 6
+:numbered:
+:chapter-label:
+:pdf-page-size: LETTER
+:icons: font
+:imagesdir: images/
+// The IF Statements don't always work. So must comment out and uncomment based on ePub or PDF
+// Title-Page-Background is for PDF
+// Front-Cover-Image is for ePub
+//:front-cover-image: image:Training_Cover.png[align="top left"]
+:title-page-background-image: image:Training_Cover.png[pdfwidth=8.0in,position=top left]
+
+
+// Initial Settings for PDFs
+ifdef::backend-pdf[]
+:title-page-background-image: image:Training_Cover.png[pdfwidth=8.0in,position=top left]
+:pygments-style: tango
+:source-highlighter: pygments
+endif::[]
+
+// Initial Settings for Github
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+:revnumber: 1.0
+
+// Initial Settings for ePub
+ifdef::ebook-format-epub3[]
+:front-cover-image: image:Training_Cover.png[align="top left"]
+:title-page-background-image: image:Training_Cover.png[pdfwidth=8.0in,position=top left]
+:pygments-style: tango
+:source-highlighter: pygments
+endif::[]
+
+
+[source,bash]
+----
+[student@workstation ~]$ mkdir Github ; cd Github/
+----
+
+[source,bash]
+----
+[student@workstation ~]$ git clone https://github.com/tmichett/DO274_Demo.git
+----
+
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/DO274_Demo/Demos/Setup
+----
+
+[source,bash]
+----
+[student@workstation ~]$ ./Demo_Prep.sh
+**********************************************
+***** Copying Collections ********************
+
+... OUTPUT OMITTED ...
+
+TASK [Sync project Website Maintenance Demo] *****************************************
+ok: [localhost]
+
+PLAY RECAP ***************************************************************************
+localhost                  : ok=35   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+----
+
+[TIP]
+=====
+This playbook will build the resources needed for the demos in all the various chapters. It will utilize the three (3) repositories from the Introduction section of the PDF for this course.
+=====
