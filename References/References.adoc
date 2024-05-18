@@ -1,5 +1,9 @@
 == References and Tutorials
 
+*Ansible Automation Platform - Documentation*
+
+* https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform
+
 === VS Code Development Environment
 
 * *Create an efficient Ansible development environment in VS Code IDE:* https://developers.redhat.com/articles/2024/03/05/create-efficient-ansible-development-environment-vs-code-ide
@@ -29,6 +33,8 @@
 * *Using your own rulebooks and projects with the decision environment*: https://ansible.readthedocs.io/projects/rulebook/en/stable/decision_environment.html
 
 
+* *Event-Driven Ansible with a minimal example:* https://dev.to/atixag/event-driven-ansible-2en0
+
 === Event-Driven Ansible (EDA) Collections
 
 * *Ansible-EDA Github*: https://github.com/ansible/event-driven-ansible
@@ -52,3 +58,8 @@
 * *EDA Rulebooks:* https://www.youtube.com/watch?v=aqQq5vD8-n0
 
 * *EDA Getting Started:* https://www.youtube.com/watch?v=_6KX5XXicSc
+
+
+=== Red Hat Interactive Labs
+
+* *Interactive labs for Red Hat Ansible Automation Platform:* https://www.redhat.com/en/interactive-labs/ansible
