@@ -1,5 +1,16 @@
+== References and Tutorials
 
-== Ansible Rulebooks and EDA
+=== VS Code Development Environment
+
+* *Create an efficient Ansible development environment in VS Code IDE:* https://developers.redhat.com/articles/2024/03/05/create-efficient-ansible-development-environment-vs-code-ide
+
+* *Ansible VS Code Extension by Red Hat:* https://marketplace.visualstudio.com/items?itemName=redhat.ansible
+
+* *Deep dive on Ansible VScode extension:* https://www.ansible.com/blog/deep-dive-on-ansible-vscode-extension/
+
+
+
+=== Ansible Rulebooks and EDA
 
 * *Getting Started with Event-Driven Ansible*: https://www.ansible.com/blog/getting-started-with-event-driven-ansible/
 
@@ -11,6 +22,33 @@
 
 * *Welcome to Ansible Rulebook documentation*: https://ansible.readthedocs.io/projects/rulebook/en/stable/
 
-== Decision Environments
+* *Utilizing Ansible Rulebooks with Event Driven Ansible:* https://medium.com/@julialiu08/writing-ansible-rulebooks-with-event-driven-ansible-69c17d3d7657
+
+=== Decision Environments
 
 * *Using your own rulebooks and projects with the decision environment*: https://ansible.readthedocs.io/projects/rulebook/en/stable/decision_environment.html
+
+
+=== Event-Driven Ansible (EDA) Collections
+
+* *Ansible-EDA Github*: https://github.com/ansible/event-driven-ansible
+
+=== Event Driven Ansible
+
+* *Event-Driven Ansible: The Simple Way to Automate Your IT Processes:* https://medium.com/@miteshget/event-driven-ansible-the-simple-way-to-automate-your-it-processes-3f7bfa57cb9e
+
+* *Creating custom Event-Driven Ansible source plugins:* https://www.ansible.com/blog/creating-custom-event-driven-ansible-source-plugins/
+
+* *Event-Driven Ansible is Here:* https://www.ansible.com/blog/event-driven-ansible-is-here/
+
+* *10 ways to integrate event-driven automation into IT operations:* https://www.redhat.com/sysadmin/event-driven-ansible-automation
+
+
+
+=== EDA Videos
+
+* *Event Driven Ansible:* https://www.youtube.com/watch?v=9K-0Dsnz84g
+
+* *EDA Rulebooks:* https://www.youtube.com/watch?v=aqQq5vD8-n0
+
+* *EDA Getting Started:* https://www.youtube.com/watch?v=_6KX5XXicSc
