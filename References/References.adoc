@@ -28,6 +28,11 @@
 
 * *Utilizing Ansible Rulebooks with Event Driven Ansible:* https://medium.com/@julialiu08/writing-ansible-rulebooks-with-event-driven-ansible-69c17d3d7657
 
+
+* *What is an Ansible Rulebook?:* https://www.redhat.com/en/topics/automation/what-is-an-ansible-rulebook
+
+* *https://www.redhat.com/en/topics/automation/what-is-an-ansible-module:* What is an Ansible module—and how does it work?
+
 === Decision Environments
 
 * *Using your own rulebooks and projects with the decision environment*: https://ansible.readthedocs.io/projects/rulebook/en/stable/decision_environment.html
