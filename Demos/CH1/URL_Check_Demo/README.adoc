@@ -15,6 +15,11 @@ endif::[]
 
 [source,bash]
 ----
+ansible-galaxy collection install ansible.eda -p collections/
+----
+
+[source,bash]
+----
 [student@workstation URL_Check_Demo]$ ansible-rulebook -r url_check.yml -i inventory
 ----
 
