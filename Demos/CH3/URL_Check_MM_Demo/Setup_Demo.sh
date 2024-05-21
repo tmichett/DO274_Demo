@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "**********************************************"
-echo "***** Copying Collections ********************"
+echo "***** Cleanup of GitOps Demo *****************"
+lab finish example-gitops
+
 cp collections/*.tar.gz /tmp
 
 echo "**********************************************"

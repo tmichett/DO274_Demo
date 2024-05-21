@@ -1,0 +1,12 @@
+---
+collections:
+  - name: "/tmp/ansible-controller-4.2.0.tar.gz"
+    type: file
+  - name: "/tmp/ansible-netcommon-2.5.1.tar.gz"
+    type: file
+  - name: "/tmp/ansible-posix-1.3.0.tar.gz"
+    type: file
+  - name: "/tmp/ansible-utils-2.5.0.tar.gz"
+    type: file
+  - name: "/tmp/ansible-eda-1.4.5.tar.gz"
+    type: file
