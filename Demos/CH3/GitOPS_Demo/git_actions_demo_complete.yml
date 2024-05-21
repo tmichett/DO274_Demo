@@ -1,0 +1,58 @@
+---
+- name: Capture posted events from GitLab
+  hosts: all
+  sources:
+    - name: Match events posted to port 5000
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+      filters:
+        - ansible.eda.dashes_to_underscores:
+
+  rules:
+    # Capture push events
+    - name: Get push event details
+      condition: event.meta.headers.X_Gitlab_Event == "Push Hook"
+      action:
+        post_event:
+          event:
+            type: "{{ event.meta.headers.X_Gitlab_Event }}"
+            gitref: "{{ event.payload.ref }}"
+            repo_name: "{{ event.payload.repository.name }}"
+
+    # Capture merge request creation events
+    - name: Get merge request creation event details
+      condition: >
+        event.meta.headers.X_Gitlab_Event == "Merge Request Hook"
+        and event.payload.object_attributes.action == "open"
+      action:
+        post_event:
+          event:
+            type: "{{ event.meta.headers.X_Gitlab_Event }}"
+            source_branch: "{{ event.payload.object_attributes.source_branch }}"
+            repo_name: "{{ event.payload.repository.name }}"
+            merge_request_action: "{{ event.payload.object_attributes.action }}"
+
+    # Run Deploy Prod job template when there is a push to the main branch
+    - name: Respond to push events to the main branch
+      condition: >
+        event.repo_name == "gitops_application"
+        and event.type == "Push Hook"
+        and event.gitref is search("main")
+      action:
+        run_job_template:
+          name: Deploy Prod
+          organization: Default
+
+    # Run Deploy Dev job template when a merge request is created
+    # in the devel branch
+    - name: Respond to merge request creation
+      condition: >
+        event.repo_name == "gitops_application"
+        and event.type == "Merge Request Hook"
+        and event.merge_request_action == "open"
+        and event.source_branch == "devel"
+      action:
+        run_job_template:
+          name: Deploy Dev
+          organization: Default
